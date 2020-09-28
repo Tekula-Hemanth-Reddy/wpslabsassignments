@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lobster+Two:ital,wght@1,700&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- coustomcss -->
+     <link rel="stylesheet" href="_css/style.css">
+
+     <!-- <style>
+       h1,h2,h3,h4,h5,h6 {
+        font-family: 'Bangers', cursive;
+       }
+       p {
+        font-family: 'Lobster Two', cursive;
+        font-size: xx-large;
+        
+       }
+
+       span {
+        font-family: 'Pacifico', cursive;
+       }
+
+       param{
+        font-family: 'Permanent Marker', cursive;
+       }
+     </style> -->
+
+</head>
+<body>
+    <section class="studentNavBar" >
+        <nav class="nav-fixed">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo heading">Student</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./student.html" class="select">Student</a></li>
+                <li><a href="./academic.html">Academic</a></li>
+                <li><a href="./proctor.html">Proctor</a></li>
+                <li><a href="./attendance.html">Attendance</a></li>
+                <li><a href="./view.html">View Details</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./student.html" class="select">Student</a></li>
+            <li><a href="./academic.html">Academic</a></li>
+            <li><a href="./proctor.html">Proctor</a></li>
+            <li><a href="./attendance.html">Attendance</a></li>
+            <li><a href="./view.html">View Details</a></li>
+          </ul>
+    </section>
+
+    <section id="studentInfo">
+        <div class="container">
+          <div class="card-panel">
+            <a class="btn-floating btn-large waves-effect waves-light red right"  onclick="editStudent()"><i class="material-icons">create</i></a>
+            <div class="center" style="margin-top: 50px;"><h4 class="heading">Student Information</h4></div>
+            <div class="row">
+              <div class="col l4 s2 m3"></div>
+              <form class="col l4 s8 m9" id="personal">
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="stu_name" type="text" class="validate" pattern="^[a-zA-Z ]{2,30}$" required>
+                    <label for="stu_name">Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="email" type="email" class="validate" required>
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="phone" type="tel" class="validate" pattern="^[6-9]{1}[0-9]{9}$" required>
+                    <label for="phone">Phone Number</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="address" type="text" class="validate" pattern="^[a-zA-Z ]{2,30}$" required>
+                    <label for="address">Address</label>
+                  </div>
+                </div>
+                <div class="center">
+                      <button class="btn waves-effect waves-light" type="submit" id="submitButton" onclick="submitDetails()">Submit
+                        <i class="material-icons right">send</i>
+                        </button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  </section>
+</body>
+<!-- j-query -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+ crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- coustomjs -->
+<script >
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+  function editStudent()
+        {
+            var obj=localStorage.getItem('studentObj');
+            obj= JSON.parse(obj);
+            document.getElementById('stu_name').value =obj['sn'];
+            document.getElementById('email').value =obj['em'];
+            document.getElementById('phone').value =obj['ph'];
+            document.getElementById('address').value =obj['ad'];
+            
+        }
+
+  function submitDetails()
+  {
+    var nameRegex = /^[a-zA-Z\-]+$/;
+    var validfirstUsername = document.frm.firstName.value.match(nameRegex);
+    if(validUsername == null){
+        alert("Your first name is not valid. Only characters A-Z, a-z and '-' are  acceptable.");
+        document.frm.firstName.focus();
+        return false;
+    }
+      var obj={
+                'sn':document.forms['personal'].elements['stu_name'].value,
+                'em':document.forms['personal'].elements['email'].value,
+                'ph':document.forms['personal'].elements['phone'].value,
+                'ad':document.forms['personal'].elements['address'].value,
+       
+            }
+            localStorage.setItem('studentObj',JSON.stringify(obj));
+  }
+</script>
+</html>

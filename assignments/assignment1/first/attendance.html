@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Information</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lobster+Two:ital,wght@1,700&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- coustomcss -->
+     <link rel="stylesheet" href="_css/style.css">
+
+     <!-- <style>
+       h1,h2,h3,h4,h5,h6 {
+        font-family: 'Bangers', cursive;
+       }
+       p {
+        font-family: 'Lobster Two', cursive;
+        font-size: xx-large;
+        
+       }
+
+       span {
+        font-family: 'Pacifico', cursive;
+       }
+
+       param{
+        font-family: 'Permanent Marker', cursive;
+       }
+     </style> -->
+
+</head>
+<body>
+    <section class="studentNavBar" >
+        <nav class="nav-fixed">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo heading">Student</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./student.html">Student</a></li>
+                <li><a href="./academic.html">Academic</a></li>
+                <li><a href="./proctor.html">Proctor</a></li>
+                <li><a href="./attendance.html" class="select">Attendance</a></li>
+                <li><a href="./view.html">View Details</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./student.html">Student</a></li>
+            <li><a href="./academic.html">Academic</a></li>
+            <li><a href="./proctor.html">Proctor</a></li>
+            <li><a href="./attendance.html" class="select">Attendance</a></li>
+            <li><a href="./view.html">View Details</a></li>
+          </ul>
+    </section>
+
+    <section id="attendanceInfo">
+        <div class="container">
+          <div class="card-panel">
+            <a class="btn-floating btn-large waves-effect waves-light red right"  onclick="editAttendance()"><i class="material-icons">create</i></a>
+              <div class="center" style="margin-top: 50px;"><h4 class="heading">Attendance Information</h4></div>
+            <div class="row">
+              <div class="col l4 s2 m3"></div>
+              <form class="col l4 s8 m9" id="attendanceForm">
+                  
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="first" type="text" class="validate" pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?|0)(\.[0-9]{1,2})?$)">
+                    <label for="first">First year %</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="second" type="text" class="validate" pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?|0)(\.[0-9]{1,2})?$)">
+                    <label for="second">Second Year %</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="third" type="text" class="validate" pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?|0)(\.[0-9]{1,2})?$)">
+                    <label for="third">Third Year %</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="fourth" type="text" class="validate" pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?|0)(\.[0-9]{1,2})?$)">
+                    <label for="fourth">Fourth Year %</label>
+                  </div>
+                </div>
+                <div class="center">
+                  <button class="btn waves-effect waves-light" type="submit" id="submitButton" onclick="submitAttendance()">Submit
+                    <i class="material-icons right">send</i>
+                    </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  </section>
+    
+    
+</body>
+<!-- j-query -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+ crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- coustomjs -->
+<script >
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+  function editAttendance()
+        {
+            var obj=localStorage.getItem('attendanceObj');
+            obj= JSON.parse(obj);
+            document.getElementById('first').value =obj['f'];
+            document.getElementById('second').value =obj['s'];
+            document.getElementById('third').value =obj['t'];
+            document.getElementById('fourth').value =obj['fo'];
+            
+        }
+
+  function submitAttendance()
+  {
+
+      var obj={
+        'f':document.forms['attendanceForm'].elements['first'].value,
+        's':document.forms['attendanceForm'].elements['second'].value,
+        't':document.forms['attendanceForm'].elements['third'].value,
+        'fo':document.forms['attendanceForm'].elements['fourth'].value,
+      }
+      localStorage.setItem('attendanceObj',JSON.stringify(obj));
+  }
+</script>
+</html>

@@ -1,0 +1,36 @@
+nav{
+    background-color: chocolate;
+}
+.heading{
+    margin-left: 50px;
+}
+.select{
+    color: black;
+    font-size: large;
+    font-weight: 600;
+}
+.heading{
+    margin-left: 50px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.imageView{
+    width: 50%;
+    height: 50%;
+}
+@media screen and (max-width : 990px)
+{
+    .heading{
+        margin-left: 0px;
+    }
+    .select{
+        background-color: chocolate;
+        color: white;
+        font-weight: 500;
+    }
+    .heading{
+        font-size: 25px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+}

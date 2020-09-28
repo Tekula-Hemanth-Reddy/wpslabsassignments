@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Details</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lobster+Two:ital,wght@1,700&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- coustomcss -->
+     <link rel="stylesheet" href="_css/style.css">
+
+     <!-- <style>
+       h1,h2,h3,h4,h5,h6 {
+        font-family: 'Bangers', cursive;
+       }
+       p {
+        font-family: 'Lobster Two', cursive;
+        font-size: xx-large;
+        
+       }
+
+       span {
+        font-family: 'Pacifico', cursive;
+       }
+
+       param{
+        font-family: 'Permanent Marker', cursive;
+       }
+     </style> -->
+
+</head>
+<body>
+    <section class="studentNavBar" >
+        <nav class="nav-fixed">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo heading">Student</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./student.html">Student</a></li>
+                <li><a href="./academic.html">Academic</a></li>
+                <li><a href="./proctor.html">Proctor</a></li>
+                <li><a href="./attendance.html">Attendance</a></li>
+                <li><a href="./view.html" class="select">View Details</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./student.html">Student</a></li>
+            <li><a href="./academic.html">Academic</a></li>
+            <li><a href="./proctor.html">Proctor</a></li>
+            <li><a href="./attendance.html">Attendance</a></li>
+            <li><a href="./view.html" class="select">View Details</a></li>
+          </ul>
+    </section>
+
+    <div class="container">
+        <div class="card-panel">
+            <div class="center" style="margin-top: 50px;"><h4 class="heading">Student Information</h4></div>
+            <div class="center">
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Student Name :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vSN"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Phone Number :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vSPN"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Email Id :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vSEI"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Address :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vSA"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card-panel">
+            <div class="center" style="margin-top: 50px;"><h4 class="heading">Academic Information</h4></div>
+            <div class="center">
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Branch :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vB"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Section :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vS"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Roll Number :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vR"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>CGPA :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vC"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card-panel">
+            <div class="center" style="margin-top: 50px;"><h4 class="heading">Proctor Information</h4></div>
+            <div class="center">
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Proctor Name :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vPN"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Proctor Phone :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vPP"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Proctor Email :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vPE"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card-panel">
+            <div class="center" style="margin-top: 50px;"><h4 class="heading">Attendance Information</h4></div>
+            <div class="center">
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>First Year % :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vFY"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Second Year % :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vSY"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Third Year % :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vTY"></h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l6 s6">
+                        <h5>Fourth Year % :</h5>
+                    </div>
+                    <div class="col l6 s6">
+                        <h5 id="vFOY"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<!-- j-query -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+ crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- coustomjs -->
+<script >
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+            if(localStorage.getItem('studentObj')){
+            var student=localStorage.getItem('studentObj');
+            student= JSON.parse(student);
+            document.getElementById('vSN').innerHTML =student['sn'];
+            document.getElementById('vSEI').innerHTML =student['em'];
+            document.getElementById('vSPN').innerHTML =student['ph'];
+            document.getElementById('vSA').innerHTML =student['ad'];}
+
+            if(localStorage.getItem('academicObj')){
+            var academic=localStorage.getItem('academicObj');
+            academic= JSON.parse(academic);
+            document.getElementById('vB').innerHTML =academic['bra'];
+            document.getElementById('vS').innerHTML =academic['sec'];
+            document.getElementById('vR').innerHTML =academic['roll'];
+            document.getElementById('vC').innerHTML =academic['cgpA'];}
+
+            if(localStorage.getItem('proctorObj')){
+            var proctor=localStorage.getItem('proctorObj');
+            proctor= JSON.parse(proctor);
+            document.getElementById('vPN').innerHTML =proctor['pn'];
+            document.getElementById('vPE').innerHTML =proctor['pem'];
+            document.getElementById('vPP').innerHTML =proctor['pph'];}
+
+            if(localStorage.getItem('attendanceObj')){
+            var attendance=localStorage.getItem('attendanceObj');
+            attendance= JSON.parse(attendance);
+            document.getElementById('vFY').innerHTML =attendance['f'];
+            document.getElementById('vSY').innerHTML =attendance['s'];
+            document.getElementById('vTY').innerHTML =attendance['t'];
+            document.getElementById('vFOY').innerHTML =attendance['fo'];}
+            
+
+</script>
+</html>

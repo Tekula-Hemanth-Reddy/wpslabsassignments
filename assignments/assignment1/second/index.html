@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body id="main">
+
+    <div class="container">
+        <div class="card-panel">
+            <div class="row">
+                <div class="col l4 m3 s2"></div>
+                <div class="col l4 m6 s8"><img id="image" alt="week day" width=100% ></div>
+            </div>
+                <h1 id="day" style="margin-top: 50px; text-align: center;"></h1>
+        </div>
+    </div>
+    
+</body>
+<script>
+    window.onload= function greetings(){
+            var day=new Date();
+            var yad=day.getDay();
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+            var week = new Array(7);
+            week[0] = "sunday.jpg";
+            week[1] = "monday.jpg";
+            week[2] = "tuesday.jpg";
+            week[3] = "wednesday.jpg";
+            week[4] = "thursday.jpg";
+            week[5] = "friday.png";
+            week[6] = "saturday.jpg";
+            var rand = new Array(7);
+            rand[0] = "#CD5C5C";
+            rand[1] = "#FFFF00";
+            rand[2] = "#808000";
+            rand[3] = "#00FF00";
+            rand[4] = "#008000";
+            rand[5] = "#3cb371";
+            rand[6] = "#ee82ee";
+            var num=Math.floor(Math.random() * 8);
+            document.getElementById('day').innerHTML=weekday[yad]; 
+            document.getElementById('image').src=week[yad]; 
+            document.getElementById('main').style.setProperty('background-color',rand[num]);
+    }
+    </script>
+</script>
+</html>

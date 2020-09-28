@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proctor Information</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lobster+Two:ital,wght@1,700&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- coustomcss -->
+     <link rel="stylesheet" href="_css/style.css">
+
+     <!-- <style>
+       h1,h2,h3,h4,h5,h6 {
+        font-family: 'Bangers', cursive;
+       }
+       p {
+        font-family: 'Lobster Two', cursive;
+        font-size: xx-large;
+        
+       }
+
+       span {
+        font-family: 'Pacifico', cursive;
+       }
+
+       param{
+        font-family: 'Permanent Marker', cursive;
+       }
+     </style> -->
+
+</head>
+<body>
+    <section class="studentNavBar" >
+        <nav class="nav-fixed">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo heading">Student</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./student.html">Student</a></li>
+                <li><a href="./academic.html">Academic</a></li>
+                <li><a href="./proctor.html" class="select">Proctor</a></li>
+                <li><a href="./attendance.html">Attendance</a></li>
+                <li><a href="./view.html">View Details</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./student.html">Student</a></li>
+            <li><a href="./academic.html">Academic</a></li>
+            <li><a href="./proctor.html" class="select">Proctor</a></li>
+            <li><a href="./attendance.html">Attendance</a></li>
+            <li><a href="./view.html">View Details</a></li>
+          </ul>
+    </section>
+
+    <section id="proctorInfo">
+      
+        <div class="container">
+          <div class="card-panel">
+            <a class="btn-floating btn-large waves-effect waves-light red right"  onclick="editProctor()"><i class="material-icons">create</i></a>
+              <div class="center" style="margin-top: 50px;"><h4 class="heading">Proctor Information</h4></div>
+            <div class="row">
+              <div class="col l4 s2 m3"></div>
+              <form class="col l4 m9 s8" id="proctorForm">   
+                <div class="row">
+                  <div class="input-field col m12 s12">
+                    <input id="proctorName" type="text" class="validate" pattern="^[a-zA-Z ]{2,30}$" required>
+                    <label for="proctorName">Proctor Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col m12 s12">
+                    <input id="proctorEmail" type="email" class="validate" required>
+                    <label for="proctorEmail">Proctor Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m12">
+                    <input id="proctorPhone" type="tel" class="validate" pattern="^[6-9]{1}[0-9]{9}$" required>
+                    <label for="proctorPhone">Proctor Phone Number</label>
+                  </div>
+                </div>
+                <div class="center">
+                  <button class="btn waves-effect waves-light" type="submit" id="submitButton" onclick="submitProcter()">Submit
+                    <i class="material-icons right">send</i>
+                    </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+  </section>
+    
+</body>
+<!-- j-query -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+ crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- coustomjs -->
+<script >
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+  function editProctor()
+        {
+            var obj=localStorage.getItem('proctorObj');
+            obj= JSON.parse(obj);
+            document.getElementById('proctorName').value =obj['pn'];
+            document.getElementById('proctorEmail').value =obj['pem'];
+            document.getElementById('proctorPhone').value =obj['pph'];
+            
+        }
+
+  function submitProcter()
+  {
+
+      var obj={
+                'pn':document.forms['proctorForm'].elements['proctorName'].value,
+                'pem':document.forms['proctorForm'].elements['proctorEmail'].value,
+                'pph':document.forms['proctorForm'].elements['proctorPhone'].value,
+       
+            }
+            localStorage.setItem('proctorObj',JSON.stringify(obj));
+  }
+</script>
+</html>

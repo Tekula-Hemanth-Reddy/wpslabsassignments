@@ -1,0 +1,33 @@
+#header{
+    background-color: chocolate;
+    height: 110px;
+    margin: 0 0 0 0;
+}
+.logo{
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+.name{
+    color: bisque;
+    padding-top: 30px;
+}
+.menu{
+    float: right;
+    margin-right: 40px;
+    margin-top: -30px;
+}
+.menuList{
+    display: inline;
+    margin-left: 10px;
+    color: bisque;
+}
+.btn{
+    border: 0;
+    text-decoration: none;
+    background-color: chocolate;
+    color: bisque;
+}

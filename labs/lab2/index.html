@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaymentSheet</title>
+    <style>
+        .lableText{
+            color: #cf7e15;
+            font-size: x-large;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+        .container{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            width: 30em
+        }
+        .center{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body style="background-color: aqua;">
+    <div class="container">
+        <div class="center">
+            <h1 style="margin-left: 150px;margin-right: auto;">Register Here</h1>
+            <form action="get">
+                <table>
+                    <tr>
+                        <th><div class="left">
+                            <label class="lableText">First Name</label>
+                            <input type="text" required>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="text">
+                                <label class="lableText">Last Name</label>
+                                <input type="text" required>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+                    <br><br>
+                    <label class="lableText">Roll Number</label>
+                    <input class="right" type="text"  required><br><br>
+                    <label class="lableText" >Phone Number</label>
+                    <input class="right" type="tel" pattern="[0-9]{10}" required><br><br>
+                    <label class="lableText">email</label>
+                    <input class="right" type="email" required><br><br>
+                    <label class="lableText">Courses</label>
+                    <select  class="right" required>
+                        <option>--select--</option>
+                        <option>C</option>
+                        <option>C++</option>
+                        <option>Java</option>
+                        <option>python</option>
+                        <option>html</option>
+                        <option>css</option>
+                    </select><br/>
+                    <label class="lableText" required>Upload Resume</label>
+                    <input class="right" type="file"><br/>
+                    <input class="right" style="margin-top: 20px; background-color: blueviolet; color: aliceblue; width: 100px; height: 30px;" type="button" value="Pay">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
