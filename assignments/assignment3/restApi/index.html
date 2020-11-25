@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Lobster+Two:ital,wght@1,700&family=Pacifico&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        h1,h2,h3,h4,h5,h6 {
+         color:crimson;
+         font-weight: bold;
+        }
+        .select{
+        color: #000000;
+        font-size: large;
+        font-weight: 600;
+       }
+    </style>
+</head>
+<body style="background-color: black;">
+    <section >
+        <nav class="nav-fixed" style="background-color: rgb(0, 119, 255);margin-top: 0px;">
+            <div class="nav-wrapper center">
+                <h3 style="margin-top: 0px;">Rest Data</h3>
+            </div>
+        </nav>
+          </ul>
+    </section>
+    <div class="container">
+        <div class="card-panel" style="margin-top:100px;background-color: aqua;" id="personeinformation">
+        </div>
+    </div>
+    
+</body>
+<!-- j-query -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+ crossorigin="anonymous"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, options);
+  });
+    var baseurl="https://reqres.in/api/register";
+    function loadPersons(){
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("Get", baseurl,true);
+        xmlHttp.onreadystatechange = function(){
+            if(xmlHttp.readyState==4 && xmlHttp.status==200){
+                var Data = JSON.parse(xmlHttp.responseText);
+                var person = Data.data;
+                var table = `<div class="row">`;
+                var main="";
+                for(i=0;i<person.length;i++){
+                    // main+="<tr><td>"+person[i].id+"</td><td>"+person[i].name+"</td><td>"+person[i].year+"</td><td>"+person[i].color+"</td><td>"+person[i].pantone_value+"</td></tr>";
+                    main+=`<div class="col xl4 l4 m6 s12 ">
+                    <ul class="collapsible">
+                        <li>
+                          <div class="collapsible-header"><i class="material-icons">person</i><b>`;
+                    main+=person[i].name;
+                    main+=`</b></div>
+                          <div style="padding-left:10px;background-color: `+person[i].color+`;color:white;padding-bottom:10px;padding-top:10px;text-align:center" ><span>`;
+                    main+="Id : "+person[i].id+"<hr/>"+"Name : "+person[i].name+"<hr/>"+"Year : "+person[i].year+"<hr/>"+"Color : "+person[i].color+"<hr/>"+"pantone_value : "+person[i].pantone_value;
+                    main+=`</span></div>
+                        </li>
+                      </ul>
+                  </div>`;
+                }
+                var tbl=table+main+"</div>";
+                document.getElementById("personeinformation").innerHTML = tbl;
+            }
+        };
+        xmlHttp.send();
+    }
+    window.onload = function(){
+        loadPersons();
+    }
+</script>
+
+</html>
